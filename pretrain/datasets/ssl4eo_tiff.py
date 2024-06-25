@@ -1,5 +1,3 @@
-# 删除60m分辨率波段分别为 B1,B9,B10（B9之前已经删除）
-# 因此现在为 S1 两个波段 ，S2 十个波段
 import os
 import numpy as np
 import torch
@@ -22,18 +20,17 @@ class TiffDataset(Dataset):
         # print("列表已保存为:", output_file)
         with open(output_file, "r") as f:
             for line in f:
-                item = line.strip()  # 去除行末尾的换行符
+                item = line.strip() 
                 self.image_paths.append(item)
 
     def __len__(self):
         return len(self.image_paths)
-        # return 600000
+   
 
     def __getitem__(self, idx):
         image_path = self.image_paths[idx]
         image_data = self.read_image_gdal(image_path)
 
-        # 转换为PyTorch张量
         # image_tensor = torch.from_numpy(image_data)
 
         if self.transform is not None:
@@ -67,7 +64,6 @@ if __name__ == '__main__':
     import random
     import cv2
 
-    # 这个是自己改好的
     train_transforms_s1 = cvtransforms.Compose([
 
         cvtransforms.ToTensor(),
