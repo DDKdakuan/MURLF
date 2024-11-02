@@ -1,9 +1,4 @@
-# 相比较于上一个版本，删除了ECA
-# 把CBlock中的x_masked相加改成了x，与convmae中保持一致
-# 降低了私有特征的提取层数 降到了2
 
-
-# 对于base大小，私有特征的分支的深度变为了4
 from functools import partial
 
 import torch
