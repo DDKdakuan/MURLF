@@ -80,18 +80,6 @@ if __name__ == '__main__':
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=256, num_workers=8)
     # print(len(train_dataset))
 
-    t1 = time.time()
-    for epoch in range(2):
-        for i, samples in enumerate(train_loader):
-
-            if i % 50 == 0:
-                print(i, 'iii')
-
-        if epoch > 1:
-            print('break')
-            break
-    t2 = time.time()
-    print('time', t2 - t1)
 
 
 
